@@ -1,0 +1,17 @@
+{
+  "name": "e2e_kwiklli_sim_app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "cy:open": "cypress open"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cypress": "^6.5.0",
+    "dotenv": "^8.2.0"
+  }
+}
