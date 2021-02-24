@@ -16,9 +16,20 @@
  * @type {Cypress.PluginConfig}
  */
 module.exports = (on, config) => {
-  require('dotenv').config();
   // `on` is used to hook into various events Cypress emits
+  on('before:run', (details) => {
+
+    console.log('Running', details.specs.length, 'specs in', details.browser.name)
+  })
+
+  on('after:run', (results) => {
+
+    console.log(results.totalPassed, 'out of', results.totalTests, 'passed')
+  })
+
+
   // `config` is the resolved Cypress config
+  require('dotenv').config();
   config.env.FONTEND_BASE_URL = process.env.FONTEND_BASE_URL;
   config.env.API_KEY = process.env.API_KEY;
   config.env.APP_ICON = process.env.APP_ICON;
@@ -28,6 +39,7 @@ module.exports = (on, config) => {
   config.env.BANK_CODE = process.env.BANK_CODE;
   config.env.PHONE_NUMBER = process.env.PHONE_NUMBER;
   config.env.BVN = process.env.BVN;
+  config.env.NEW_USERID = process.env.NEW_USERID;
   config.env.USERNAME = process.env.USERNAME;
   config.env.PASSWORD = process.env.PASSWORD;
 
